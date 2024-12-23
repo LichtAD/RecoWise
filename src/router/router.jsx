@@ -8,6 +8,9 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import MyQueries from "../components/MyQueries/MyQueries";
 import PrivateRoute from "./PrivateRoute";
+import AddQueries from "../components/AddQueries/AddQueries";
+import AllQueries from "../components/AllQueries/AllQueries";
+import QueryDetails from "../components/QueryDetails/QueryDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +35,24 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyQueries></MyQueries>
                 </PrivateRoute>,
+            },
+            {
+                path: "/add-queries",
+                element: <PrivateRoute>
+                    <AddQueries></AddQueries>
+                </PrivateRoute>,
+            },
+            {
+                path: "/all-queries",
+                element: <AllQueries></AllQueries>,
+                loader: async () => fetch('http://localhost:5000/queries'),
+            },
+            {
+                path: "/query-details/:id",
+                element: <PrivateRoute>
+                    <QueryDetails></QueryDetails>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
             },
         ],
     },
