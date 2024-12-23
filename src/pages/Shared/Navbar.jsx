@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
 
-    // ! theme function
-    const [theme, setTheme] = useState('light');
+    const { user, logOut } = useAuth();
 
-    useEffect(() => {
-        document.querySelector('html').setAttribute('data-theme', theme);
-    }, [theme]);
+    // // ! theme function
+    // const [theme, setTheme] = useState('light');
+
+    // useEffect(() => {
+    //     document.querySelector('html').setAttribute('data-theme', theme);
+    // }, [theme]);
 
 
     const links = <>
-        <li><a>Item 1</a></li>
-        <li>
-            <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-            </details>
-        </li>
-        <li><a>Item 3</a></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/all-queries">Queries</NavLink></li>
+
+        <li><NavLink to="/recommendations-for-me">Recommendations For Me</NavLink></li>
+        <li><NavLink to="/my-queries">My Queries</NavLink></li>
+        <li><NavLink to="/my-recommendations">My recommendations</NavLink></li>
     </>
 
     return (
@@ -51,7 +50,10 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center justify-center'>
                         <img src="/images/logo.jpeg" className='w-14' alt="" />
-                        <a className="btn btn-ghost text-xl">RecoWise</a>
+                        <NavLink to="/" className="mx-4 text-xl">RecoWise</NavLink>
+                        {/* {
+                            user ? <p>{user.displayName}</p> : "guest"
+                        } */}
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -59,11 +61,27 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end flex items-center gap-4">
+                    <div>
+                        {
+                            user && user?.photoURL ?
+                                <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                : ''
+                        }
+                    </div>
+                    <div>
+                        {
+                            user ? <button onClick={logOut} className='btn'>Logout</button> : <NavLink to="/login" className="btn">Login</NavLink>
+                        }
+                    </div>
                 </div>
-                <div>
-                    {/* ⁡⁢⁣⁢customize start⁡ */}
+
+                {/* theme */}
+                {/* <div>
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className={`btn m-1 ${theme === 'dark' ? 'bg-[#2A323C]' : 'bg-base-200'} border-none flex justify-center items-center w-24`}>
                             <h1>Theme</h1>
@@ -104,8 +122,9 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    {/* customize end */}
-                </div>
+                    
+                </div> */}
+
             </div>
         </div>
     );
