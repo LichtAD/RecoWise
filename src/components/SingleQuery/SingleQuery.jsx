@@ -18,7 +18,7 @@ const SingleQuery = ({ query }) => {
                     <h2 className="card-title">{product_name}</h2>
                     <p>{query_title}</p>
                     <div className="flex justify-between">
-                        <button className="btn btn-primary">Recommendation Count: {count ? count : 0}</button>
+                        <button className="btn btn-primary">Recommendation Count: {count}</button>
                         <NavLink to={`/query-details/${_id}`} className="btn btn-primary">Recommend</NavLink>
                     </div>
                 </div>

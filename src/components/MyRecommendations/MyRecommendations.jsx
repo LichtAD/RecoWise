@@ -15,7 +15,7 @@ const MyRecommendations = () => {
 
     // const { queryTitle, productName, userEmail, userName, recommenderEmail, recommenderName, currentTime } = recommendations;
 
-    const handleDeleteRecommendation = (id) => {
+    const handleDeleteRecommendation = (id, query_id) => {
         // console.log(id);
         Swal.fire({
             title: "Are you sure?",
@@ -34,7 +34,11 @@ const MyRecommendations = () => {
                 // });
 
                 fetch(`http://localhost:5000/recommendations/${id}`, {
-                    method: 'DELETE'
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ query_id })
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -80,7 +84,9 @@ const MyRecommendations = () => {
                                 <td>{recommendation.userName}</td>
                                 <td>{recommendation.queryTitle}</td>
                                 {/* <td>{recommendation.recommenderName}</td> */}
-                                <td><button onClick={() => handleDeleteRecommendation(recommendation._id)} className='btn btn-xs'>Delete</button></td>
+                                <td><button onClick={() => {
+                                    handleDeleteRecommendation(recommendation._id, recommendation.queryId)
+                                }} className='btn btn-xs'>Delete</button></td>
                             </tr>)
                         }
 

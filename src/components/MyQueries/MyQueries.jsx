@@ -32,8 +32,8 @@ const MyQueries = () => {
                                 <h2 className="card-title">{query.product_name}</h2>
                                 <p>{query.query_title}</p>
                                 <div className="flex justify-between">
-                                    <button className="btn btn-primary">View Details</button>
-                                    <button className="btn btn-primary">Update</button>
+                                    <NavLink to={`/my-queries/query-details/${query._id}`} className="btn btn-primary">View Details</NavLink>
+                                    <NavLink to={`/my-queries/update-query/${query._id}`} className="btn btn-primary">Update</NavLink>
                                     <button className="btn btn-primary">Delete</button>
                                 </div>
                             </div>

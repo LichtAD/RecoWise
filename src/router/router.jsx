@@ -12,6 +12,8 @@ import AddQueries from "../components/AddQueries/AddQueries";
 import AllQueries from "../components/AllQueries/AllQueries";
 import QueryDetails from "../components/QueryDetails/QueryDetails";
 import MyRecommendations from "../components/MyRecommendations/MyRecommendations";
+import MyQueryDetails from "../components/MyQueryDetails/MyQueryDetails";
+import UpdateMyQuery from "../components/UpdateMyQuery/UpdateMyQuery";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +62,16 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyRecommendations></MyRecommendations>
                 </PrivateRoute>,
+            },
+            {
+                path: "/my-queries/query-details/:id",
+                element: <MyQueryDetails></MyQueryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+            },
+            {
+                path: "/my-queries/update-query/:id",
+                element: <UpdateMyQuery></UpdateMyQuery>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
             },
         ],
     },
