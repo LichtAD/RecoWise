@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const SingleQuery = ({ query }) => {
 
     // console.log(query);
-    const { _id, email, name, user_photo, time, product_name, product_brand, product_image, query_title, reason } = query;
+    const { _id, email, name, user_photo, time, product_name, product_brand, product_image, query_title, reason, count } = query;
 
     return (
         <div>
@@ -18,7 +18,7 @@ const SingleQuery = ({ query }) => {
                     <h2 className="card-title">{product_name}</h2>
                     <p>{query_title}</p>
                     <div className="flex justify-between">
-                        <button className="btn btn-primary">Recommendation Count: {0}</button>
+                        <button className="btn btn-primary">Recommendation Count: {count ? count : 0}</button>
                         <NavLink to={`/query-details/${_id}`} className="btn btn-primary">Recommend</NavLink>
                     </div>
                 </div>

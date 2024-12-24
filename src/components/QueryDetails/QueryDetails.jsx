@@ -74,6 +74,10 @@ const QueryDetails = () => {
                 </div>
             </div>
 
+            <div>
+                <h1 className='text-3xl font-bold my-16'>All Recommendations</h1>
+            </div>
+
         </div>
     );
 };
