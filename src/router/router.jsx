@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddQueries from "../components/AddQueries/AddQueries";
 import AllQueries from "../components/AllQueries/AllQueries";
 import QueryDetails from "../components/QueryDetails/QueryDetails";
+import MyRecommendations from "../components/MyRecommendations/MyRecommendations";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
                     <QueryDetails></QueryDetails>
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+            },
+            {
+                path: "/my-recommendations",
+                element: <PrivateRoute>
+                    <MyRecommendations></MyRecommendations>
+                </PrivateRoute>,
             },
         ],
     },
