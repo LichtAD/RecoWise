@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const MyQueries = () => {
 
@@ -12,6 +13,44 @@ const MyQueries = () => {
             .then(res => res.json())
             .then(data => setQueries(data))
     }, [user.email])
+
+    const handleDeleteQuery = (id) => {
+        // console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire({
+                //     title: "Deleted!",
+                //     text: "Your file has been deleted.",
+                //     icon: "success"
+                // });
+
+                fetch(`http://localhost:5000/queries/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your query has been deleted.',
+                                'success'
+                            )
+                            const remainingQueries = queries.filter(query => query._id !== id);
+                            setQueries(remainingQueries);
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div>
@@ -34,7 +73,7 @@ const MyQueries = () => {
                                 <div className="flex justify-between">
                                     <NavLink to={`/my-queries/query-details/${query._id}`} className="btn btn-primary">View Details</NavLink>
                                     <NavLink to={`/my-queries/update-query/${query._id}`} className="btn btn-primary">Update</NavLink>
-                                    <button className="btn btn-primary">Delete</button>
+                                    <button onClick={() => handleDeleteQuery(query._id)} className="btn btn-primary">Delete</button>
                                 </div>
                             </div>
                         </div>)
