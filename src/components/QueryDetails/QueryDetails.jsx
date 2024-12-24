@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
@@ -8,6 +8,16 @@ const QueryDetails = () => {
     const navigate = useNavigate();
     const { user } = useAuth();
     // console.log(user.email, user.displayName);
+
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/recommendations?queryId=${_id}`)
+            .then(res => res.json())
+            .then(data => setComments(data))
+    }, [])
+
+    // console.log(comments);
 
     const current_time = new Date().toLocaleString();
     // console.log(current_time);
@@ -28,7 +38,8 @@ const QueryDetails = () => {
             userName: name,
             recommenderEmail: user.email,
             recommenderName: user.displayName,
-            currentTime: current_time
+            recommenderPhoto: user.photoURL,
+            currentTime: current_time,
         }
 
         fetch('http://localhost:5000/recommendations', {
@@ -75,7 +86,25 @@ const QueryDetails = () => {
             </div>
 
             <div>
-                <h1 className='text-3xl font-bold my-16'>All Recommendations</h1>
+                <h1 className='text-3xl font-bold my-8'>All Recommendations</h1>
+                <div className=''>
+                    {
+                        comments.map(comment => <div key={comment._id} className="flex items-center mb-4">
+                            <div className="flex p-2 gap-4 items-center">
+                                <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={comment.recommenderPhoto} alt={comment.recommenderName} />
+                                    </div>
+                                </div>
+                                <div className=''>
+                                    <div className="font-bold"> Recommended by: {comment.recommenderName}</div>
+                                    <div className="text-sm opacity-50">Recommended at: {comment.currentTime}</div>
+                                </div>
+                            </div>
+                            {/* <p className='text-2xl my-4'>{comment.recommendation}</p> */}
+                        </div>)
+                    }
+                </div>
             </div>
 
         </div>

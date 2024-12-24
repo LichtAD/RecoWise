@@ -11,7 +11,7 @@ const RecentQueries = () => {
             .then(data => setRecentQueries(data))
     }, [])
 
-    console.log(recentQueries);
+    // console.log(recentQueries);
 
     return (
         <div className='my-10'>
