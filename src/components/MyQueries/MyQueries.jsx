@@ -8,6 +8,12 @@ const MyQueries = () => {
     const [queries, setQueries] = useState([]);
     const { user } = useAuth();
 
+    const [columns, setColumns] = useState(3);
+
+    const handleColumnChange = (colCount) => {
+        setColumns(colCount);
+    };
+
     useEffect(() => {
         fetch(`http://localhost:5000/queries?email=${user.email}`)
             .then(res => res.json())
@@ -53,19 +59,72 @@ const MyQueries = () => {
     }
 
     return (
-        <div>
-            <h1 className='text-center text-3xl font-bold my-4 flex gap-4'>
+        <div className='my-10'>
+            {/* <h1 className='text-center text-3xl font-bold my-4 flex gap-4'>
                 My Queries: {queries.length}
                 <NavLink className='btn' to="/add-queries">Add queries</NavLink>
-            </h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+            </h1> */}
+
+            <div className="my-10 bg-[url('https://i.ibb.co.com/fv73VFm/f00fa880-31c3-4866-ab3c-36a29939967e.jpg')] w-full h-[400px] bg-no-repeat bg-cover bg-center bg-blend-overlay bg-black/40 rounded-2xl flex justify-center items-center flex-col max-w-5xl mx-auto text-white">
+                <h1 className='text-center text-3xl font-bold my-4'>My Queries</h1>
+                <NavLink className='btn' to="/add-queries">Add queries</NavLink>
+            </div>
+
+            <div className='flex justify-between items-center my-4'>
+                <div className='w-1/3'></div>
+                <div className='w-1/3'></div>
+                <div className='w-1/3 flex justify-end'>
+                    <div className="join">
+                        <input
+                            className="join-item btn"
+                            type="radio"
+                            name="options"
+                            aria-label="Column 1"
+                            onClick={() => handleColumnChange(1)}
+                        />
+                        <input
+                            className="join-item btn"
+                            type="radio"
+                            name="options"
+                            aria-label="Column 2"
+                            onClick={() => handleColumnChange(2)}
+                        />
+                        <input
+                            className="join-item btn"
+                            type="radio"
+                            name="options"
+                            aria-label="Column 3"
+                            defaultChecked
+                            onClick={() => handleColumnChange(3)}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                {
+                    queries.length === 0 &&
+                    <div>
+                        <h1 className='text-center text-3xl font-bold my-4'>
+                            No queries found
+                        </h1>
+                        <div className='text-center'>
+                            <NavLink className='btn' to="/add-queries">Add queries</NavLink>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div className={`grid gap-10 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                 {
                     queries.map(query =>
-                        <div key={query._id} className="card card-compact bg-base-100 shadow-xl">
-                            <figure>
-                                <img className='w-[60%]'
+                        <div key={query._id} className="card card-compact h-[500px] bg-base-100 shadow-xl">
+                            <figure className="w-full h-[70%]">
+                                <img
+                                    className="w-80 h-full object-cover"
                                     src={query.product_image}
-                                    alt={query.product_name} />
+                                    alt={query.product_name}
+                                />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{query.product_name}</h2>

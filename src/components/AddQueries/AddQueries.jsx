@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { formatISO } from 'date-fns';
 
 const AddQueries = () => {
 
@@ -11,7 +12,9 @@ const AddQueries = () => {
     const email = user.email;
     const name = user.displayName;
     const user_photo = user.photoURL;
-    const time = new Date().toLocaleString();
+
+    const time = formatISO(new Date());
+    // console.log(time);
 
     const handleAddQueries = (event) => {
         event.preventDefault();

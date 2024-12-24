@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SingleQuery from './SingleQuery/SingleQuery';
 
 const RecentQueries = () => {
+
+    const [recentQueries, setRecentQueries] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/queries-six')
+            .then(res => res.json())
+            .then(data => setRecentQueries(data))
+    }, [])
+
+    console.log(recentQueries);
+
     return (
-        <div>
+        <div className='my-10'>
             <h1 className='text-center text-3xl font-bold my-4'>Recent Queries</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+                {
+                    recentQueries.map(singleQuery =>
+                        <div key={singleQuery._id} className="card card-compact bg-base-100 h-[500px] shadow-xl">
+                            <figure className="w-full h-[80%]">
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src={singleQuery.product_image}
+                                    alt={singleQuery.product_name}
+                                />
+                            </figure>
+
+                            <div className="card-body">
+                                <h2 className="card-title">{singleQuery.product_name}</h2>
+                                <p>{singleQuery.query_title}</p>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 };

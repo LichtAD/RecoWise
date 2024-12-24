@@ -18,9 +18,14 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/all-queries">Queries</NavLink></li>
 
-        <li><NavLink to="/recommendations-for-me">Recommendations For Me</NavLink></li>
-        <li><NavLink to="/my-queries">My Queries</NavLink></li>
-        <li><NavLink to="/my-recommendations">My recommendations</NavLink></li>
+        {
+            user ? <div className='flex items-center gap-0'>
+                <li><NavLink to="/recommendations-for-me">Recommendations For Me</NavLink></li>
+                <li><NavLink to="/my-queries">My Queries</NavLink></li>
+                <li><NavLink to="/my-recommendations">My recommendations</NavLink></li>
+            </div>
+            : ''
+        }
     </>
 
     return (
