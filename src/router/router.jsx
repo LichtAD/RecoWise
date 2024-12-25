@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: "/my-queries",
                 element: <PrivateRoute>
-                    <MyQueries></MyQueries>
+                    <MyQueries></MyQueries>         {/* jwt done */}
                 </PrivateRoute>,
             },
             {
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path: "/all-queries",
                 element: <AllQueries></AllQueries>,
-                loader: async () => fetch('http://localhost:5000/queries'),
+                loader: async () => fetch('http://localhost:5000/queries-only'),
             },
             {
                 path: "/query-details/:id",
