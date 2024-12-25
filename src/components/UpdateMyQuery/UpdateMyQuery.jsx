@@ -22,7 +22,7 @@ const UpdateMyQuery = () => {
         // console.log(updatedQuery);
 
         // ! need to send data to the server
-        fetch(`http://localhost:5000/queries/${_id}`, {
+        fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -89,7 +89,7 @@ const UpdateMyQuery = () => {
 
                     <div className="form-control mt-8">
                         <button className={`btn bg-custom-gradient-2 text-white border-2 text-xl w-full`}>
-                            Add Equipment
+                            Update Query
                         </button>
                     </div>
 

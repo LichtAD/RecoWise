@@ -29,7 +29,7 @@ const AddQueries = () => {
         // console.log(newQuery);
 
         // ! send data to the server
-        fetch('http://localhost:5000/queries', {
+        fetch('https://product-recommendation-system-server-coral.vercel.app/queries', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -97,7 +97,7 @@ const AddQueries = () => {
 
                     <div className="form-control mt-8">
                         <button className={`btn bg-custom-gradient-2 text-white border-2 text-xl w-full`}>
-                            Add Equipment
+                            Add Query
                         </button>
                     </div>
 

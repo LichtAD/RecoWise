@@ -55,14 +55,14 @@ const router = createBrowserRouter([
             {
                 path: "/all-queries",
                 element: <AllQueries></AllQueries>,
-                loader: async () => fetch('http://localhost:5000/queries-only'),
+                loader: async () => fetch('https://product-recommendation-system-server-coral.vercel.app/queries-only'),
             },
             {
                 path: "/query-details/:id",
                 element: <PrivateRoute>
                     <QueryDetails></QueryDetails>         {/* jwt done */}
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${params.id}`)
             },
             {
                 path: "/my-recommendations",
@@ -73,12 +73,12 @@ const router = createBrowserRouter([
             {
                 path: "/my-queries/query-details/:id",
                 element: <MyQueryDetails></MyQueryDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${params.id}`)
             },
             {
                 path: "/my-queries/update-query/:id",
                 element: <UpdateMyQuery></UpdateMyQuery>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${params.id}`)
             },
         ],
     },
