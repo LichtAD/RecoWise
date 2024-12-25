@@ -8,10 +8,13 @@ const RecommendationForMe = () => {
     const [recommendationsForMe, setRecommendationsForMe] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recommendations?userEmail=${user.email}`)
+        fetch(`http://localhost:5000/recommendations?userEmail=${user.email}`, {
+            method: 'GET',
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(data => setRecommendationsForMe(data))
-            .catch(error => console.log(error))
+            // .catch(error => console.log(error))
     }, [user.email])
 
     // console.log(recommendationsForMe);

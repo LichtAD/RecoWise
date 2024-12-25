@@ -13,7 +13,10 @@ const QueryDetails = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recommendations?queryId=${_id}`)
+        fetch(`http://localhost:5000/recommendations?queryId=${_id}`, {
+            method: 'GET',
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(data => setComments(data))
     }, [])
