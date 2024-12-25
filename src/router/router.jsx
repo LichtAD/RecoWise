@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: "/recommendations-for-me",
                 element: <PrivateRoute>
-                    <RecommendationForMe></RecommendationForMe>
+                    <RecommendationForMe></RecommendationForMe>         {/* jwt done */}
                 </PrivateRoute>,
             },
             {
@@ -60,14 +60,14 @@ const router = createBrowserRouter([
             {
                 path: "/query-details/:id",
                 element: <PrivateRoute>
-                    <QueryDetails></QueryDetails>
+                    <QueryDetails></QueryDetails>         {/* jwt done */}
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
             },
             {
                 path: "/my-recommendations",
                 element: <PrivateRoute>
-                    <MyRecommendations></MyRecommendations>
+                    <MyRecommendations></MyRecommendations>         {/* jwt done */}
                 </PrivateRoute>,
             },
             {

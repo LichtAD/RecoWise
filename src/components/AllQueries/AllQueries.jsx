@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleQuery from '../SingleQuery/SingleQuery';
+// import { TfiLayoutColumn3 } from "react-icons/tfi";
 
 const AllQueries = () => {
 
@@ -31,21 +32,21 @@ const AllQueries = () => {
                 <div className='w-1/3 flex justify-end'>
                     <div className="join">
                         <input
-                            className="join-item btn"
+                            className={`join-item btn ${columns === 1 ? 'bg-custom-gradient-2 text-white' : ''}`}
                             type="radio"
                             name="options"
-                            aria-label="Column 1"
+                            aria-label={"Column 1"}
                             onClick={() => handleColumnChange(1)}
                         />
                         <input
-                            className="join-item btn"
+                            className={`join-item btn ${columns === 2 ? 'bg-custom-gradient-2 text-white' : ''}`}
                             type="radio"
                             name="options"
                             aria-label="Column 2"
                             onClick={() => handleColumnChange(2)}
                         />
                         <input
-                            className="join-item btn"
+                            className={`join-item btn ${columns === 3 ? 'bg-custom-gradient-2 text-white' : ''}`}
                             type="radio"
                             name="options"
                             aria-label="Column 3"

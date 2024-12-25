@@ -65,36 +65,37 @@ const MyRecommendations = () => {
             <h1 className='text-center text-3xl font-bold my-4'>My Recommendations</h1>
 
             <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
+                <table className="min-w-full leading-normal">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>product Name</th>
-                            <th>Query Posted By</th>
-                            <th>Recommended Title</th>
-                            <th>Recommended Product</th>
-                            <th>Recommended Reason</th>
-                            <th>Action</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Product Name</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Query Posted By</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Title</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Product</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Reason</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        {/* row 2 */}
-                        {
-                            recommendations.map((recommendation, index) => <tr key={recommendation._id} className="hover">
-                                <th>{index + 1}</th>
-                                <td>{recommendation.productName}</td>
-                                <td>{recommendation.userName}</td>
-                                <td>{recommendation.recommendationTitle}</td>
-                                <td>{recommendation.recommendationProductName}</td>
-                                <td>{recommendation.recommendationReason}</td>
-                                <td><button onClick={() => {
-                                    handleDeleteRecommendation(recommendation._id, recommendation.queryId)
-                                }} className='btn btn-xs'>Delete</button></td>
-                            </tr>)
-                        }
-
+                        {recommendations.map((recommendation, index) => (
+                            <tr key={recommendation._id} className="bg-white hover:bg-gray-100">
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{index + 1}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.productName}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.userName}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationTitle}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationProductName}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationReason}</td>
+                                <td className="px-5 py-5 border-b border-gray-200 text-sm">
+                                    <button
+                                        onClick={() => handleDeleteRecommendation(recommendation._id, recommendation.queryId)}
+                                        className="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-700"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

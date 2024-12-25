@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     // const [user, setUser] = useState('avc');
     const [loading, setLoading] = useState(true);
 
-    console.log(loading, user);
+    // console.log(loading, user);
 
     // ! register with email and password
     const createNewUser = (email, password) => {
@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
                 axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         setLoading(false);
                     })
             }

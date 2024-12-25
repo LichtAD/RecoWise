@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './SingleQuery.css'
 
 const SingleQuery = ({ query, columns }) => {
 
@@ -10,10 +11,10 @@ const SingleQuery = ({ query, columns }) => {
 
     return (
         <div>
-            <div className="card card-compact bg-base-100 h-[500px] shadow-xl">
+            <div className="card card-compact bg-base-100 h-[550px] shadow-xl">
                 <figure className="w-full h-[70%]">
                     <img
-                        className="w-80 h-full object-cover"
+                        className="w-full h-full object-cover p-2"
                         src={product_image}
                         alt={product_name}
                     />
@@ -23,8 +24,8 @@ const SingleQuery = ({ query, columns }) => {
                     <h2 className="card-title">{product_name}</h2>
                     <p>{query_title}</p>
                     <div className="flex justify-between">
-                        <button className="btn btn-primary">Recommendation Count: {count}</button>
-                        <NavLink to={`/query-details/${_id}`} className="btn btn-primary">Recommend</NavLink>
+                        <button className="btn bg-custom-gradient-2 text-white">Recommendation Count: {count}</button>
+                        <NavLink to={`/query-details/${_id}`} className="btn bg-custom-gradient-2 text-white">Recommend</NavLink>
                     </div>
                 </div>
             </div>

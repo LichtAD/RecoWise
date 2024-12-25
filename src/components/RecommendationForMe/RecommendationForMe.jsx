@@ -14,7 +14,7 @@ const RecommendationForMe = () => {
         })
             .then(res => res.json())
             .then(data => setRecommendationsForMe(data))
-            // .catch(error => console.log(error))
+        // .catch(error => console.log(error))
     }, [user.email])
 
     // console.log(recommendationsForMe);
@@ -24,36 +24,36 @@ const RecommendationForMe = () => {
             <h1 className='text-center text-3xl font-bold my-4'>Recommendation For Me</h1>
 
             <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Recommended Product</th>
-                            <th>Recommended By</th>
-                            <th>Recommendation Title</th>
-                            <th>Recommendation Reason</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 2 */}
-                        {
-                            recommendationsForMe.map((recommendation, index) =>
-                                <tr key={recommendation._id} className="hover">
-                                    <th>{index + 1}</th>
-                                    <td><img className='w-16' src={recommendation.recommendationProductImage} alt="" /></td>
-                                    <td>{recommendation.productName}</td>
-                                    <td>{recommendation.recommendationProductName}</td>
-                                    <td>{recommendation.recommenderName}</td>
-                                    <td>{recommendation.recommendationTitle}</td>
-                                    <td>{recommendation.recommendationReason}</td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
-                </table>
+                <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+                            <tr>
+                                <th scope="col" className="py-3 px-6">#</th>
+                                <th scope="col" className="py-3 px-6">Image</th>
+                                <th scope="col" className="py-3 px-6">Product Name</th>
+                                <th scope="col" className="py-3 px-6">Recommended Product</th>
+                                <th scope="col" className="py-3 px-6">Recommended By</th>
+                                <th scope="col" className="py-3 px-6">Recommendation Title</th>
+                                <th scope="col" className="py-3 px-6">Recommendation Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                recommendationsForMe.map((recommendation, index) =>
+                                    <tr key={recommendation._id} className="border-b hover:bg-gray-100">
+                                        <td className="py-4 px-6">{index + 1}</td>
+                                        <td className="py-4 px-6"><img className='w-16 rounded-lg' src={recommendation.recommendationProductImage} alt="" /></td>
+                                        <td className="py-4 px-6">{recommendation.productName}</td>
+                                        <td className="py-4 px-6">{recommendation.recommendationProductName}</td>
+                                        <td className="py-4 px-6">{recommendation.recommenderName}</td>
+                                        <td className="py-4 px-6">{recommendation.recommendationTitle}</td>
+                                        <td className="py-4 px-6">{recommendation.recommendationReason}</td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>

@@ -97,7 +97,7 @@ const Footer = () => {
                             type="text"
                             placeholder="username@site.com"
                             className="input input-bordered join-item" />
-                        <button className="btn btn-primary join-item">Contact</button>
+                        <button className="btn bg-custom-gradient-2 text-white join-item">Contact</button>
                     </div>
                 </fieldset>
             </form>

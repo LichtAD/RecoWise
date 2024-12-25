@@ -14,19 +14,19 @@ const Navbar = () => {
     // }, [theme]);
 
 
-    const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/all-queries">Queries</NavLink></li>
+    const links = <div className='flex items-center gap-4'>
+        <li><NavLink className="nav_link p-2 rounded-lg" to="/">Home</NavLink></li>
+        <li><NavLink className="nav_link p-2 rounded-lg" to="/all-queries">Queries</NavLink></li>
 
-        {
+        { 
             user ? <div className='flex items-center gap-0'>
-                <li><NavLink to="/recommendations-for-me">Recommendations For Me</NavLink></li>
-                <li><NavLink to="/my-queries">My Queries</NavLink></li>
-                <li><NavLink to="/my-recommendations">My recommendations</NavLink></li>
+                <li><NavLink className="nav_link p-2 rounded-lg" to="/recommendations-for-me">Recommendations For Me</NavLink></li>
+                <li><NavLink className="nav_link p-2 rounded-lg" to="/my-queries">My Queries</NavLink></li>
+                <li><NavLink className="nav_link p-2 rounded-lg" to="/my-recommendations">My recommendations</NavLink></li>
             </div>
             : ''
         }
-    </>
+    </div>
 
     return (
         <div>
@@ -49,7 +49,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
                     </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu-horizontal px-1">
                         {links}
                     </ul>
                 </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
                         {
                             user && user?.photoURL ?
                                 <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
-                                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <div className="w-10 rounded-full ring ring-custom-gradient ring-offset-base-100 ring-offset-2">
                                         <img src={user?.photoURL} />
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ const Navbar = () => {
                     </div>
                     <div>
                         {
-                            user ? <button onClick={logOut} className='btn'>Logout</button> : <NavLink to="/login" className="btn">Login</NavLink>
+                            user ? <button onClick={logOut} className='btn bg-custom-gradient text-white'>Logout</button> : <NavLink to="/login" className="btn">Login</NavLink>
                         }
                     </div>
                 </div>
