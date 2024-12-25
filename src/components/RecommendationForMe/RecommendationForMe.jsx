@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
+import 'animate.css';
 
 const RecommendationForMe = () => {
 
@@ -21,7 +22,7 @@ const RecommendationForMe = () => {
 
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold my-4'>Recommendation For Me</h1>
+            <h1 className='text-center text-3xl font-bold my-4 animate__animated animate__flipInX'>Recommendation For Me</h1>
 
             <div className="overflow-x-auto">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">

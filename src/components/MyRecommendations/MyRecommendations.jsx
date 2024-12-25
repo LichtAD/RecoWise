@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import 'animate.css';
 
 const MyRecommendations = () => {
 
@@ -62,7 +63,7 @@ const MyRecommendations = () => {
 
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold my-4'>My Recommendations</h1>
+            <h1 className='text-center text-3xl font-bold my-4 animate__animated animate__rotateInDownLeft'>My Recommendations</h1>
 
             <div className="overflow-x-auto">
                 <table className="min-w-full leading-normal">

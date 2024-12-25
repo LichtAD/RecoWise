@@ -96,7 +96,7 @@ const AddQueries = () => {
                     </div>
 
                     <div className="form-control mt-8">
-                        <button className={`btn bg-base-200 border-2 text-xl w-full`}>
+                        <button className={`btn bg-custom-gradient-2 text-white border-2 text-xl w-full`}>
                             Add Equipment
                         </button>
                     </div>

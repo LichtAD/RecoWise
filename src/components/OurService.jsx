@@ -7,10 +7,18 @@ const OurService = () => {
         <div className='my-10'>
             <h1 className='text-center text-3xl font-bold my-10'>Our Services</h1>
             <div className='flex gap-8'>
-                <div className='w-1/2'>
+
+                <div className='w-1/2' data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine">
                     <Lottie className='w-[100%] mx-auto' animationData={scrollAnimation}></Lottie>
                 </div>
-                <div className='w-1/2 flex flex-col justify-center items-start gap-8'>
+
+                <div data-aos="fade-left"
+                    data-aos-anchor="#example-anchor"
+                    data-aos-offset="500"
+                    data-aos-duration="500" 
+                    className='w-1/2 flex flex-col justify-center items-start gap-8'>
                     <h1 className='text-3xl font-bold'>We offers a wide range of categories that makes your life easy and efficient.</h1>
                     <p>Explore a variety of categories that are thoughtfully crafted to enhance your daily life with ease and efficiency. Our services are designed to adapt to your needs, providing reliable solutions in every aspect.</p>
                     <div className='flex flex-col gap-10'>

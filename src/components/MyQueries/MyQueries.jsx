@@ -6,6 +6,8 @@ import axios from 'axios';
 import { FcViewDetails } from "react-icons/fc";
 import { FaPencilAlt } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import './MyQueries.css';
+import 'animate.css';
 
 const MyQueries = () => {
 
@@ -73,7 +75,7 @@ const MyQueries = () => {
             </h1> */}
 
             <div className="my-10 bg-[url('https://i.ibb.co.com/fv73VFm/f00fa880-31c3-4866-ab3c-36a29939967e.jpg')] w-full h-[400px] bg-no-repeat bg-cover bg-center bg-blend-overlay bg-black/40 rounded-2xl flex justify-center items-center flex-col max-w-5xl mx-auto text-white">
-                <h1 className='text-center text-3xl font-bold my-4'>My Queries</h1>
+                <h1 className='text-center text-3xl font-bold my-4 animate__animated animate__jackInTheBox'>My Queries</h1>
                 <NavLink className='btn bg-custom-gradient-2 border-none text-white' to="/add-queries">Add queries</NavLink>
             </div>
 
@@ -129,7 +131,7 @@ const MyQueries = () => {
                         {/* <div key={query._id} className="card card-compact h-[500px] bg-base-100 shadow-xl"> */}
                             <figure className="w-full h-[80%]">
                                 <img
-                                    className="w-80 h-full object-cover"
+                                    className="w-full h-full object-cover p-2"
                                     src={query.product_image}
                                     alt={query.product_name}
                                 />

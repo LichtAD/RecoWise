@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleQuery from '../SingleQuery/SingleQuery';
 // import { TfiLayoutColumn3 } from "react-icons/tfi";
+import 'animate.css';
 
 const AllQueries = () => {
 
@@ -25,7 +26,7 @@ const AllQueries = () => {
     return (
         <div className='my-10'>
             <div className='flex justify-between items-center my-4'>
-                <h1 className='w-1/3 text-3xl font-bold my-4'>All Queries</h1>
+                <h1 className='w-1/3 text-3xl font-bold my-4 animate__animated animate__fadeInLeft'>All Queries</h1>
                 <div className='w-1/3'>
                     <input type="text" placeholder="Search..." className="input input-bordered w-full max-w-xs" onChange={handleSearch} />
                 </div>

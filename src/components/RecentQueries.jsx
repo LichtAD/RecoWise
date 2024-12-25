@@ -19,7 +19,7 @@ const RecentQueries = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
                     recentQueries.map(singleQuery =>
-                        <div key={singleQuery._id} className="card card-compact bg-base-100 h-[500px] shadow-xl">
+                        <div key={singleQuery._id} className="card card-compact p-2 bg-base-100 h-[500px] shadow-xl">
                             <figure className="w-full h-[80%]">
                                 <img
                                     className="w-full h-full object-cover"
