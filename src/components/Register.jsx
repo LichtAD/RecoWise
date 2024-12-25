@@ -112,36 +112,36 @@ const Register = () => {
                         <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text text-white">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="name" className="text-black input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text text-white">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="email" className="text-black input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text text-white">Photo URL</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="photo url" className="input input-bordered" required />
+                                <input type="text" name='photo' placeholder="photo url" className="text-black input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text text-white">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                <input type="password" name='password' placeholder="password" className="text-black input input-bordered" required />
                                 {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-custom-gradient-2 text-white border-none">Register</button>
                             </div>
                             <div className='my-2'>
-                                <h1>Already have an account? <NavLink to={'/login'} className='text-primary link link-hover'>Login</NavLink></h1>
+                                <h1>Already have an account? <NavLink to={'/login'} className='text-white link link-hover'>Login</NavLink></h1>
                             </div>
 
                             {/* Google Login */}
@@ -175,7 +175,7 @@ const Register = () => {
                                             });
                                         }
                                     }}
-                                    className="btn btn-primary btn-outline rounded-full"
+                                    className="btn text-white btn-outline rounded-full"
                                 >
                                     <IoLogoGoogle size={20} /> Login with Google
                                 </button>
