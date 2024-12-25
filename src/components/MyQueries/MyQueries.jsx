@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const MyQueries = () => {
 
@@ -15,9 +16,12 @@ const MyQueries = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/queries?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setQueries(data))
+        // fetch(`http://localhost:5000/queries?email=${user.email}`)
+        //     .then(res => res.json())
+        //     .then(data => setQueries(data))
+
+        axios.get(`http://localhost:5000/queries?email=${user.email}`, {withCredentials: true})
+            .then(res => setQueries(res.data))
     }, [user.email])
 
     const handleDeleteQuery = (id) => {

@@ -18,7 +18,7 @@ const RecommendationForMe = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-bold my-4'>Recommendation For Me: {recommendationsForMe.length}</h1>
+            <h1 className='text-center text-3xl font-bold my-4'>Recommendation For Me</h1>
 
             <div className="overflow-x-auto">
                 <table className="table">

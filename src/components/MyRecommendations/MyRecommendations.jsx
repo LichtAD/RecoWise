@@ -59,7 +59,7 @@ const MyRecommendations = () => {
 
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold my-4'>My Recommendations: {recommendations.length}</h1>
+            <h1 className='text-center text-3xl font-bold my-4'>My Recommendations</h1>
 
             <div className="overflow-x-auto">
                 <table className="table">
