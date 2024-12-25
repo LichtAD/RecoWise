@@ -14,6 +14,7 @@ import QueryDetails from "../components/QueryDetails/QueryDetails";
 import MyRecommendations from "../components/MyRecommendations/MyRecommendations";
 import MyQueryDetails from "../components/MyQueryDetails/MyQueryDetails";
 import UpdateMyQuery from "../components/UpdateMyQuery/UpdateMyQuery";
+import RecommendationForMe from "../components/RecommendationForMe/RecommendationForMe";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>,
+            },
+            {
+                path: "/recommendations-for-me",
+                element: <RecommendationForMe></RecommendationForMe>,
             },
             {
                 path: "/my-queries",

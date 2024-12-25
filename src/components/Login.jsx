@@ -104,8 +104,8 @@ const Login = () => {
                                                     confirmButtonText: "OK",
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
-                                                        // navigate(location?.state ? location.state : "/");
-                                                        navigate('/');
+                                                        navigate(location?.state ? location.state : "/");
+                                                        // navigate('/');
                                                     }
                                                 });
                                             }

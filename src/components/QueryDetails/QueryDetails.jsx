@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import { formatISO } from 'date-fns';
 
 const QueryDetails = () => {
 
@@ -19,7 +20,8 @@ const QueryDetails = () => {
 
     // console.log(comments);
 
-    const current_time = new Date().toLocaleString();
+    // const current_time = new Date().toLocaleString();
+    const current_time = formatISO(new Date());
     // console.log(current_time);
 
     const loadedQuery = useLoaderData();
