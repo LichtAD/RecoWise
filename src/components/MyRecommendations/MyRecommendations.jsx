@@ -68,9 +68,10 @@ const MyRecommendations = () => {
                         <tr>
                             <th></th>
                             <th>product Name</th>
-                            <th>Query User</th>
-                            <th>Query Title</th>
-                            {/* <th>Recommendeder Name</th> */}
+                            <th>Query Posted By</th>
+                            <th>Recommended Title</th>
+                            <th>Recommended Product</th>
+                            <th>Recommended Reason</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -82,8 +83,9 @@ const MyRecommendations = () => {
                                 <th>{index + 1}</th>
                                 <td>{recommendation.productName}</td>
                                 <td>{recommendation.userName}</td>
-                                <td>{recommendation.queryTitle}</td>
-                                {/* <td>{recommendation.recommenderName}</td> */}
+                                <td>{recommendation.recommendationTitle}</td>
+                                <td>{recommendation.recommendationProductName}</td>
+                                <td>{recommendation.recommendationReason}</td>
                                 <td><button onClick={() => {
                                     handleDeleteRecommendation(recommendation._id, recommendation.queryId)
                                 }} className='btn btn-xs'>Delete</button></td>

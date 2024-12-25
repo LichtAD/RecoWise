@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
-import { formatISO } from 'date-fns';
+import { format, formatISO } from 'date-fns';
 
 const QueryDetails = () => {
 
@@ -32,6 +32,13 @@ const QueryDetails = () => {
     const addRecommendation = (event) => {
         event.preventDefault();
 
+        const form = event.target;
+        const recommendation_title = form.recommendation_title.value;
+        const recommendation_product_name = form.recommendation_product_name.value;
+        const recommendation_product_image = form.recommendation_product_image.value;
+        const recommendation_reason = form.recommendation_reason.value;
+        // console.log({ recommendation_title, recommendation_product_name, recommendation_product_image, recommendation_reason });
+
         const added_recommendation_obj = {
             queryId: _id,
             queryTitle: query_title,
@@ -42,6 +49,10 @@ const QueryDetails = () => {
             recommenderName: user.displayName,
             recommenderPhoto: user.photoURL,
             currentTime: current_time,
+            recommendationTitle: recommendation_title,
+            recommendationProductName: recommendation_product_name,
+            recommendationProductImage: recommendation_product_image,
+            recommendationReason: recommendation_reason
         }
 
         fetch('http://localhost:5000/recommendations', {
@@ -72,18 +83,55 @@ const QueryDetails = () => {
             <h2 className='text-3xl font-bold my-4'>Query Posted by: {name}</h2>
             {/* <p>id : {_id}</p> */}
 
-            <div className="flex flex-col lg:flex-row bg-base-100 w-full lg:h-[400px] shadow-xl rounded-xl mt-10 my-10">
+            <div className="flex flex-col justify-between lg:flex-row bg-base-100 w-full lg:h-[550px] shadow-xl rounded-xl mt-10 my-10">
                 <figure className=''>
                     <img className='h-full w-full object-cover rounded-tl-lg rounded-bl-lg'
                         src={product_image}
                         alt={product_name} />
                 </figure>
+
                 <div className="p-4 space-y-8 rounded-lg ml-10">
                     <h3 className="text-3xl font-bold">Product: {product_name}</h3>
                     <p className="text-lg font-medium">Brand: {product_brand}</p>
                     <p className="text-lg">{query_title}</p>
                     <p className="font-medium">Reason: {reason}</p>
-                    <button onClick={addRecommendation} className="btn btn-primary">Add Recommendation</button>
+                    {/* <button onClick={addRecommendation} className="btn btn-primary">Add Recommendation</button> */}
+                </div>
+
+                {/* recommendations */}
+                <div className='px-4'>
+                    <form onSubmit={addRecommendation}>
+                        <h1 className='text-3xl font-bold my-4'>Add Recommendation</h1>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Recommendation Title</span>
+                            </label>
+                            <input type="text" name='recommendation_title' placeholder="recommendation title" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Recommended Product Name</span>
+                            </label>
+                            <input type="text" name='recommendation_product_name' placeholder="recommendation product name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Recommended Product Image</span>
+                            </label>
+                            <input type="text" name='recommendation_product_image' placeholder="recommendation product image" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Recommendation Reason</span>
+                            </label>
+                            <input type="text" name='recommendation_reason' placeholder="recommendation reason" className="input input-bordered" required />
+                        </div>
+
+                        <div className="form-control mt-6">
+                            <button type="submit" className="btn btn-primary">Add Recommendation</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -95,12 +143,13 @@ const QueryDetails = () => {
                             <div className="flex p-2 gap-4 items-center">
                                 <div className="avatar">
                                     <div className="mask mask-squircle w-12 h-12">
-                                        <img src={comment.recommenderPhoto} alt={comment.recommenderName} />
+                                        <img src={comment.recommendationProductImage} alt={comment.recommenderName} />
                                     </div>
                                 </div>
                                 <div className=''>
-                                    <div className="font-bold"> Recommended by: {comment.recommenderName}</div>
-                                    <div className="text-sm opacity-50">Recommended at: {comment.currentTime}</div>
+                                    <div className="font-bold">{comment.recommenderName} - <span className="text-sm opacity-80">{comment.recommendationProductName}</span></div>
+                                    <div className="text-sm opacity-80">{comment.recommendationReason}</div>
+                                    <div className='text-sm opacity-50'>Recommended At: {format(new Date(comment.currentTime), 'PPpp')}</div>
                                 </div>
                             </div>
                             {/* <p className='text-2xl my-4'>{comment.recommendation}</p> */}
