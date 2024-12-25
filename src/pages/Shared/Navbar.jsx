@@ -14,19 +14,31 @@ const Navbar = () => {
     // }, [theme]);
 
 
-    const links = <div className='flex items-center gap-4'>
-        <li><NavLink className="nav_link p-2 rounded-lg" to="/">Home</NavLink></li>
-        <li><NavLink className="nav_link p-2 rounded-lg" to="/all-queries">Queries</NavLink></li>
+    const links = (
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4 gap-2">
+            <li>
+                <NavLink className="nav_link p-2 rounded-lg" to="/">Home</NavLink>
+            </li>
+            <li>
+                <NavLink className="nav_link p-2 rounded-lg" to="/all-queries">Queries</NavLink>
+            </li>
 
-        { 
-            user ? <div className='flex items-center gap-0'>
-                <li><NavLink className="nav_link p-2 rounded-lg" to="/recommendations-for-me">Recommendations For Me</NavLink></li>
-                <li><NavLink className="nav_link p-2 rounded-lg" to="/my-queries">My Queries</NavLink></li>
-                <li><NavLink className="nav_link p-2 rounded-lg" to="/my-recommendations">My recommendations</NavLink></li>
-            </div>
-            : ''
-        }
-    </div>
+            {user && (
+                <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4 gap-2">
+                    <li>
+                        <NavLink className="nav_link p-2 rounded-lg" to="/recommendations-for-me">Recommendations For Me</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="nav_link p-2 rounded-lg" to="/my-queries">My Queries</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="nav_link p-2 rounded-lg" to="/my-recommendations">My Recommendations</NavLink>
+                    </li>
+                </div>
+            )}
+        </div>
+    );
+
 
     return (
         <div>
@@ -80,7 +92,7 @@ const Navbar = () => {
                     </div>
                     <div>
                         {
-                            user ? <button onClick={logOut} className='btn bg-custom-gradient text-white'>Logout</button> : <NavLink to="/login" className="btn">Login</NavLink>
+                            user ? <button onClick={logOut} className='btn bg-custom-gradient text-white'>Logout</button> : <NavLink to="/login" className="btn bg-custom-gradient text-white">Login</NavLink>
                         }
                     </div>
                 </div>

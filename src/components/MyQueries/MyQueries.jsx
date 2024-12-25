@@ -25,7 +25,7 @@ const MyQueries = () => {
         //     .then(res => res.json())
         //     .then(data => setQueries(data))
 
-        axios.get(`http://localhost:5000/queries?email=${user.email}`, {withCredentials: true})
+        axios.get(`http://localhost:5000/queries?email=${user.email}`, { withCredentials: true })
             .then(res => setQueries(res.data))
     }, [user.email])
 
@@ -79,10 +79,10 @@ const MyQueries = () => {
                 <NavLink className='btn bg-custom-gradient-2 border-none text-white' to="/add-queries">Add queries</NavLink>
             </div>
 
-            <div className='flex justify-between items-center my-4'>
-                <div className='w-1/3'></div>
-                <div className='w-1/3'></div>
-                <div className='w-1/3 flex justify-end'>
+            <div className='flex flex-col lg:flex-row justify-between items-center my-4'>
+                <div className='flex-1'></div>
+                <div className='flex-1'></div>
+                <div className='flex-1 flex justify-end'>
                     <div className="join">
                         <input
                             className={`join-item btn ${columns === 1 ? 'bg-custom-gradient-2 text-white' : ''}`}
@@ -124,13 +124,12 @@ const MyQueries = () => {
                 }
             </div>
 
-            <div className={`grid gap-10 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+            <div className={`grid gap-2 lg:gap-10 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                 {
                     queries.map(query =>
-                        <div key={query._id} className="card card-compact h-[500px] bg-base-100 shadow-xl relative">
+                        <div key={query._id} className="card card-compact h-[550px] bg-base-100 shadow-xl lg:relative">
                             <figure className="w-full h-[80%]">
-                                <img
-                                    className={`object-cover p-2 ${columns === 1 ? 'w-[30%]' : columns === 2 ? 'h-full w-[50%]' : 'h-full w-full'}`}
+                                <img className={`object-cover p-2 ${columns === 1 ? 'lg:w-[30%] md:w-[30%] w-[60%] h-full' : columns === 2 ? 'h-full w-[100%] md:w-[70%] lg:w-[70%]' : 'h-full w-full lg:w-full'}`}
                                     src={query.product_image}
                                     alt={query.product_name}
                                 />
@@ -138,7 +137,7 @@ const MyQueries = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{query.product_name}</h2>
                                 <p>{query.query_title}</p>
-                                <div className="flex justify-between flex-col gap-4 absolute top-4 right-4">
+                                <div className="flex justify-between flex-col gap-4 lg:absolute top-4 right-4">
                                     <NavLink to={`/my-queries/query-details/${query._id}`} className="btn bg-custom-gradient-2 text-white"><FcViewDetails size={20} /></NavLink>
                                     <NavLink to={`/my-queries/update-query/${query._id}`} className="btn bg-custom-gradient-2 text-white"><FaPencilAlt size={20} /></NavLink>
                                     <button onClick={() => handleDeleteQuery(query._id)} className="btn bg-custom-gradient-2 text-white"><MdDeleteOutline size={20} /></button>

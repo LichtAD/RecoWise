@@ -25,12 +25,12 @@ const AllQueries = () => {
 
     return (
         <div className='my-10'>
-            <div className='flex justify-between items-center my-4'>
-                <h1 className='w-1/3 text-3xl font-bold my-4 animate__animated animate__fadeInLeft'>All Queries</h1>
-                <div className='w-1/3'>
+            <div className='flex flex-col lg:flex-row gap-4 justify-between items-center my-4'>
+                <h1 className='flex-1 text-3xl font-bold my-4 animate__animated animate__fadeInLeft'>All Queries</h1>
+                <div className='flex-1'>
                     <input type="text" placeholder="Search..." className="input input-bordered w-full max-w-xs" onChange={handleSearch} />
                 </div>
-                <div className='w-1/3 flex justify-end'>
+                <div className='flex-1 flex justify-end'>
                     <div className="join">
                         <input
                             className={`join-item btn ${columns === 1 ? 'bg-custom-gradient-2 text-white' : ''}`}
@@ -57,7 +57,7 @@ const AllQueries = () => {
                     </div>
                 </div>
             </div>
-            <div className={`grid gap-10 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+            <div className={`grid lg:gap-10 gap-2 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                 {
                     queries.map(query => (
                         <SingleQuery key={query._id} query={query} columns={columns} />
