@@ -128,10 +128,9 @@ const MyQueries = () => {
                 {
                     queries.map(query =>
                         <div key={query._id} className="card card-compact h-[500px] bg-base-100 shadow-xl relative">
-                        {/* <div key={query._id} className="card card-compact h-[500px] bg-base-100 shadow-xl"> */}
                             <figure className="w-full h-[80%]">
                                 <img
-                                    className="w-full h-full object-cover p-2"
+                                    className={`object-cover p-2 ${columns === 1 ? 'w-[30%]' : columns === 2 ? 'h-full w-[50%]' : 'h-full w-full'}`}
                                     src={query.product_image}
                                     alt={query.product_name}
                                 />
@@ -140,7 +139,6 @@ const MyQueries = () => {
                                 <h2 className="card-title">{query.product_name}</h2>
                                 <p>{query.query_title}</p>
                                 <div className="flex justify-between flex-col gap-4 absolute top-4 right-4">
-                                {/* <div className="flex justify-between flex-col gap-4"> */}
                                     <NavLink to={`/my-queries/query-details/${query._id}`} className="btn bg-custom-gradient-2 text-white"><FcViewDetails size={20} /></NavLink>
                                     <NavLink to={`/my-queries/update-query/${query._id}`} className="btn bg-custom-gradient-2 text-white"><FaPencilAlt size={20} /></NavLink>
                                     <button onClick={() => handleDeleteQuery(query._id)} className="btn bg-custom-gradient-2 text-white"><MdDeleteOutline size={20} /></button>

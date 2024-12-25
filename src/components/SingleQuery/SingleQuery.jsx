@@ -11,10 +11,9 @@ const SingleQuery = ({ query, columns }) => {
 
     return (
         <div>
-            <div className="card card-compact bg-base-100 h-[550px] shadow-xl">
-                <figure className="w-full h-[70%]">
-                    <img
-                        className="w-full h-full object-cover p-2"
+            <div className={`card card-compact bg-base-100 shadow-xl h-[550px]`}>
+                <figure className="w-full h-[80%]">
+                    <img className={`object-cover p-2 ${columns === 1 ? 'w-[30%]' : columns === 2 ? 'h-full w-[50%]' : 'h-full w-full'}`}
                         src={product_image}
                         alt={product_name}
                     />
