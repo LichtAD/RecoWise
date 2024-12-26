@@ -56,7 +56,7 @@ RecoWise is a platform to recommend products to users based on their preferences
 
 ## Requirement Document Link of the Project
 
-# [Requirement Document Link of the Project](https://docs.google.com/document/d/1_rQI8iPyKJ2g0-HMSXZ5glE-5osVfHTxgsXpFvqPDEI/edit?usp=sharing)
+# [Requirement Document Link of the Project](https://docs.google.com/document/d/1khXORj7dda0E1aJfYR3xB5u6Q0m3HTTDuXYtpbCWvN0/edit?usp=sharing)
 
 ## Live Link of the Project
 
