@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path: "/all-queries",
                 element: <AllQueries></AllQueries>,
-                loader: async () => fetch('https://product-recommendation-system-server-coral.vercel.app/queries-only'),
+                // loader: async () => fetch('https://product-recommendation-system-server-coral.vercel.app/queries-only'),
             },
             {
                 path: "/query-details/:id",

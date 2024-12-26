@@ -3,6 +3,7 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { formatISO } from 'date-fns';
+import axios from 'axios';
 
 const AddQueries = () => {
 
@@ -16,7 +17,7 @@ const AddQueries = () => {
     const time = formatISO(new Date());
     // console.log(time);
 
-    const handleAddQueries = (event) => {
+    const handleAddQueries = async (event) => {
         event.preventDefault();
         const form = event.target;
         const product_name = form.product_name.value;
@@ -29,27 +30,52 @@ const AddQueries = () => {
         // console.log(newQuery);
 
         // ! send data to the server
-        fetch('https://product-recommendation-system-server-coral.vercel.app/queries', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newQuery)
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                Swal.fire({
-                    title: "Congratulation!",
-                    text: "New Query has been added in the database!",
-                    icon: "success",
-                    confirmButtonText: "Ok"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate('/my-queries');
-                    }
-                })
+        // fetch('https://product-recommendation-system-server-coral.vercel.app/queries', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newQuery)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         // console.log(data);
+        //         Swal.fire({
+        //             title: "Congratulation!",
+        //             text: "New Query has been added in the database!",
+        //             icon: "success",
+        //             confirmButtonText: "Ok"
+        //         }).then((result) => {
+        //             if (result.isConfirmed) {
+        //                 navigate('/my-queries');
+        //             }
+        //         })
+        //     })
+
+        try {
+            const res = await axios.post('https://product-recommendation-system-server-coral.vercel.app/queries', newQuery, { withCredentials: true })
+            // console.log(res);
+            Swal.fire({
+                title: "Congratulation!",
+                text: "New Query has been added in the database!",
+                icon: "success",
+                confirmButtonText: "Ok"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/my-queries');
+                }
             })
+        }
+        catch (err) {
+            // console.log(err);
+            Swal.fire({
+                title: "Error!",
+                text: err.message,
+                icon: "error",
+                confirmButtonText: "Ok"
+            })
+        }
+
     }
 
     return (

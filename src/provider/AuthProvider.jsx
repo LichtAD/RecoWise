@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
             else {
                 axios.post('https://product-recommendation-system-server-coral.vercel.app/logout', {}, { withCredentials: true })
                     .then(res => {
-                        console.log('logout', res.data)
+                        // console.log('logout', res.data)
                         setLoading(false);
                     })
             }

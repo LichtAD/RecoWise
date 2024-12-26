@@ -1,10 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import { Helmet } from "react-helmet";
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
+
+    const location = useLocation();
+    // console.log(location);
 
     // // ! theme function
     // const [theme, setTheme] = useState('light');
@@ -42,6 +46,15 @@ const Navbar = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    {location.pathname === '/' ? 'RecoWise' : location.pathname === '/all-queries' ? 'All Queries' : location.pathname === '/recommendations-for-me' ? 'Recommendations For Me' : location.pathname === '/my-queries' ? 'My Queries' : location.pathname === '/my-recommendations' ? 'My Recommendations' : location.pathname === '/add-queries' ? 'Add Queries' : 'RecoWise'}
+                </title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">

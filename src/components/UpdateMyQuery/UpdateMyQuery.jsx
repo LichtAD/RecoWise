@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet";
 
 const UpdateMyQuery = () => {
 
@@ -45,55 +46,62 @@ const UpdateMyQuery = () => {
     }
 
     return (
-        <div className='my-10'>
-            <h1 className='text-3xl font-bold my-4'>Update My Query</h1>
-            <div className=''>
-                <form onSubmit={handleUpdateQuery}>
-                    <div className='flex justify-center items-center flex-col my-4'>
-                        <h1 className='text-2xl font-bold'>Email: {email}</h1>
-                        <h2 className='text-2xl font-bold'>Name: {name}</h2>
-                    </div>
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Product Name</span>
-                            </label>
-                            <input type="text" name="product_name" defaultValue={product_name} placeholder="Enter Product Name" className="input input-bordered" required />
+        <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Update My Query</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            <div className='my-10'>
+                <h1 className='text-3xl font-bold my-4'>Update My Query</h1>
+                <div className=''>
+                    <form onSubmit={handleUpdateQuery}>
+                        <div className='flex justify-center items-center flex-col my-4'>
+                            <h1 className='text-2xl font-bold'>Email: {email}</h1>
+                            <h2 className='text-2xl font-bold'>Name: {name}</h2>
+                        </div>
+                        <div className='grid grid-cols-2 gap-4'>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Name</span>
+                                </label>
+                                <input type="text" name="product_name" defaultValue={product_name} placeholder="Enter Product Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Brand</span>
+                                </label>
+                                <input type="text" name="product_brand" defaultValue={product_brand} placeholder="Enter Product Brand" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Image-URL</span>
+                                </label>
+                                <input type="text" name="product_image" defaultValue={product_image} placeholder="Enter Product Image-URL" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Query Title</span>
+                                </label>
+                                <input type="text" name="query_title" defaultValue={query_title} placeholder="Enter Query TItle" className="input input-bordered" required />
+                            </div>
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Product Brand</span>
+                                <span className="label-text">Boycotting Reason Details</span>
                             </label>
-                            <input type="text" name="product_brand" defaultValue={product_brand} placeholder="Enter Product Brand" className="input input-bordered" required />
+                            {/* <input type="text" name="image" placeholder="Enter Image" className="input input-bordered" required /> */}
+                            <textarea name="reason" defaultValue={reason} className="textarea textarea-bordered h-20" placeholder="Boycotting Reason Details"></textarea>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Product Image-URL</span>
-                            </label>
-                            <input type="text" name="product_image" defaultValue={product_image} placeholder="Enter Product Image-URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Query Title</span>
-                            </label>
-                            <input type="text" name="query_title" defaultValue={query_title} placeholder="Enter Query TItle" className="input input-bordered" required />
-                        </div>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Boycotting Reason Details</span>
-                        </label>
-                        {/* <input type="text" name="image" placeholder="Enter Image" className="input input-bordered" required /> */}
-                        <textarea name="reason" defaultValue={reason} className="textarea textarea-bordered h-20" placeholder="Boycotting Reason Details"></textarea>
-                    </div>
 
-                    <div className="form-control mt-8">
-                        <button className={`btn bg-custom-gradient-2 text-white border-2 text-xl w-full`}>
-                            Update Query
-                        </button>
-                    </div>
+                        <div className="form-control mt-8">
+                            <button className={`btn bg-custom-gradient-2 text-white border-2 text-xl w-full`}>
+                                Update Query
+                            </button>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );
