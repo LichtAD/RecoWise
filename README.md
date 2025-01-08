@@ -1,7 +1,11 @@
 # RecoWise
 
 **Welcome to RecoWise !!!**
+Discover top sports gear tailored to your needs, compare options, explore reviews, and snag the best prices!
+
 RecoWise is a platform to recommend products to users based on their preferences. It uses a combination of user ratings and product features to suggest the best products for users. The platform is built using Node.js, Express.js, and MongoDB. The user interface is built using React.js and hosted on Firebase with Vercel as the deployment platform.
+
+![RecoWise](https://i.ibb.co.com/nnhjx78/Reco-Wise-front.png)
 
 ## Key Features
 
@@ -61,3 +65,26 @@ RecoWise is a platform to recommend products to users based on their preferences
 ## Live Link of the Project
 
 # [Live Site Link](https://project-recommendation-lichtad.web.app/)
+
+## How to run the project in local
+
+- First, clone the project
+```
+git clone <private-repo-url>
+```
+- Then go to project folder
+```
+cd <project-directory>
+```
+
+- Install all packages
+```
+npm i
+```
+
+- Create .env.local file and add all the environment variables from firebase
+
+- Run the project
+```
+npm run dev
+```
