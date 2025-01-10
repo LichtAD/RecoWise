@@ -23,7 +23,7 @@ const UpdateMyQuery = () => {
         // console.log(updatedQuery);
 
         // ! need to send data to the server
-        fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${_id}`, {
+        fetch(`http://localhost:5000/queries/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

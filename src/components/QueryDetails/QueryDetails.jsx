@@ -15,7 +15,7 @@ const QueryDetails = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetch(`https://product-recommendation-system-server-coral.vercel.app/recommendations?queryId=${_id}`, {
+        fetch(`http://localhost:5000/recommendations?queryId=${_id}`, {
             method: 'GET',
             credentials: 'include'
         })
@@ -60,7 +60,7 @@ const QueryDetails = () => {
             recommendationReason: recommendation_reason
         }
 
-        fetch('https://product-recommendation-system-server-coral.vercel.app/recommendations', {
+        fetch('http://localhost:5000/recommendations', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

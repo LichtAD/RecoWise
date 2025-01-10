@@ -21,11 +21,11 @@ const MyQueries = () => {
     };
 
     useEffect(() => {
-        // fetch(`https://product-recommendation-system-server-coral.vercel.app/queries?email=${user.email}`)
+        // fetch(`http://localhost:5000/queries?email=${user.email}`)
         //     .then(res => res.json())
         //     .then(data => setQueries(data))
 
-        axios.get(`https://product-recommendation-system-server-coral.vercel.app/queries?email=${user.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/queries?email=${user.email}`, { withCredentials: true })
             .then(res => setQueries(res.data))
     }, [user.email])
 
@@ -47,7 +47,7 @@ const MyQueries = () => {
                 //     icon: "success"
                 // });
 
-                fetch(`https://product-recommendation-system-server-coral.vercel.app/queries/${id}`, {
+                fetch(`http://localhost:5000/queries/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

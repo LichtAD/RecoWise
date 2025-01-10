@@ -15,7 +15,7 @@ import 'swiper/css/scrollbar';
 const Slide = () => {
     return (
         <div className='my-10'>
-            <h1 className='text-center text-3xl font-bold my-4'>Get a Peek</h1>
+            <h1 className='text-center text-3xl font-bold my-4'>Get a Peek of Our Services</h1>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}

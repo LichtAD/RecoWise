@@ -9,7 +9,7 @@ const MyRecommendations = () => {
     const [recommendations, setRecommendations] = useState([]);
 
     useEffect(() => {
-        fetch(`https://product-recommendation-system-server-coral.vercel.app/recommendations?recommenderEmail=${user.email}`, {
+        fetch(`http://localhost:5000/recommendations?recommenderEmail=${user.email}`, {
             method: 'GET',
             credentials: 'include'
         })
@@ -37,7 +37,7 @@ const MyRecommendations = () => {
                 //     icon: "success"
                 // });
 
-                fetch(`https://product-recommendation-system-server-coral.vercel.app/recommendations/${id}`, {
+                fetch(`http://localhost:5000/recommendations/${id}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

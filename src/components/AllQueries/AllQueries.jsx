@@ -16,7 +16,7 @@ const AllQueries = () => {
     // console.log(searchText);
 
     useEffect(() => {
-        axios.get(`https://product-recommendation-system-server-coral.vercel.app/queries-only?filter=${searchText}`)
+        axios.get(`http://localhost:5000/queries-only?filter=${searchText}`)
             .then(res => setQueries(res.data))
     }, [searchText])
 
