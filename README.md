@@ -64,7 +64,7 @@ RecoWise is a platform to recommend products to users based on their preferences
 
 ## Live Link of the Project
 
-# [Live Site Link](https://project-recommendation-lichtad.web.app/)
+# [Live Site](https://project-recommendation-lichtad.web.app/)
 
 ## How to run the project in local
 
