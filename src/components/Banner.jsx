@@ -9,7 +9,7 @@ const Banner = () => {
                     Welcome to RecoWise
                 </h1>
                 <p className=''>We ask your questions for you</p>
-                <button className="px-8 py-3 bg-custom-gradient-2 text-white rounded-full font-bold text-lg">Explore Now</button>
+                <a href='#recent-queries' className="px-8 py-3 bg-custom-gradient-2 text-white rounded-full font-bold text-lg">Explore Now</a>
             </div>
         </div>
     );

@@ -1,10 +1,14 @@
 import Lottie from 'lottie-react';
 import React from 'react';
 import scrollAnimation from '../assets/lottie/scroll_category.json';
+import useAuth from '../Hooks/useAuth';
 
 const OurService = () => {
+
+    const { theme } = useAuth();
+
     return (
-        <div className='my-10'>
+        <div className={`my-10 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
             <h1 className='text-center text-3xl font-bold my-10'>Our Services</h1>
             <div className='flex flex-col md:flex-row gap-8'>
 

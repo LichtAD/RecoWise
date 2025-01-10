@@ -23,8 +23,8 @@ const SingleQuery = ({ query, columns }) => {
                     <h2 className="card-title">{product_name}</h2>
                     <p>{query_title}</p>
                     <div className="flex flex-col lg:flex-row gap-2 justify-between">
-                        <button className="btn bg-custom-gradient-2 text-white">Count: {count}</button>
-                        <NavLink to={`/query-details/${_id}`} className="btn bg-custom-gradient-2 text-white">Recommend</NavLink>
+                        <button className={`btn bg-custom-gradient-2 text-white border-1 border-white`}>Count: {count}</button>
+                        <NavLink to={`/query-details/${_id}`} className={`btn bg-custom-gradient-2 text-white border-1 border-white`}>Recommend</NavLink>
                     </div>
                 </div>
             </div>

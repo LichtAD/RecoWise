@@ -5,7 +5,7 @@ import 'animate.css';
 
 const MyRecommendations = () => {
 
-    const { user } = useAuth();
+    const { user, theme } = useAuth();
     const [recommendations, setRecommendations] = useState([]);
 
     useEffect(() => {
@@ -68,31 +68,31 @@ const MyRecommendations = () => {
             <div className="overflow-x-auto">
                 <table className="min-w-full leading-normal">
                     <thead>
-                        <tr>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">#</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Image</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Product Name</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Query Posted By</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Title</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Product</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Recommended Reason</th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Action</th>
+                        <tr className={`${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100 text-black'}`}>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">#</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Image</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Product Name</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Query Posted By</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Recommended Title</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Recommended Product</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Recommended Reason</th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {recommendations.map((recommendation, index) => (
-                            <tr key={recommendation._id} className="bg-white hover:bg-gray-100">
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{index + 1}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm"><img className='w-16 rounded-lg' src={recommendation.recommendationProductImage} alt="" /></td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.productName}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.userName}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationTitle}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationProductName}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">{recommendation.recommendationReason}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 text-sm">
+                            <tr key={recommendation._id} className={`${theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'}`}>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{index + 1}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm`}><img className='w-16 rounded-lg' src={recommendation.recommendationProductImage} alt="" /></td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{recommendation.productName}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{recommendation.userName}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{recommendation.recommendationTitle}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{recommendation.recommendationProductName}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm text-${theme === 'dark' ? 'white' : 'black'}`}>{recommendation.recommendationReason}</td>
+                                <td className={`px-5 py-5 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} text-sm`}>
                                     <button
                                         onClick={() => handleDeleteRecommendation(recommendation._id, recommendation.queryId)}
-                                        className="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-700"
+                                        className={`bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-700`}
                                     >
                                         Delete
                                     </button>

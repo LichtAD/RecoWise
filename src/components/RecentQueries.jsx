@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SingleQuery from './SingleQuery/SingleQuery';
+import useAuth from '../Hooks/useAuth';
 
 const RecentQueries = () => {
+
+    const { theme } = useAuth();
 
     const [recentQueries, setRecentQueries] = useState([]);
 
@@ -14,8 +17,8 @@ const RecentQueries = () => {
     // console.log(recentQueries);
 
     return (
-        <div className='my-10'>
-            <h1 className='text-center text-3xl font-bold my-4'>Recent Queries</h1>
+        <div className='my-10' id='recent-queries'>
+            <h1 className={`text-center text-3xl font-bold my-4 ${theme === 'light' ? 'text-black' : 'text-white'}`}>Recent Queries</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
                     recentQueries.map(singleQuery =>

@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     // const [user, setUser] = useState('avc');
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState('light');
 
     // console.log(loading, user);
 
@@ -54,6 +55,8 @@ const AuthProvider = ({ children }) => {
         signInWithGoogle,
         updateMyProfile,
         logOut,
+        theme,
+        setTheme
     }
 
     useEffect(() => {

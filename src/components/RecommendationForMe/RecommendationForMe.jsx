@@ -4,7 +4,7 @@ import 'animate.css';
 
 const RecommendationForMe = () => {
 
-    const { user } = useAuth();
+    const { user, theme } = useAuth();
     // console.log(user);
     const [recommendationsForMe, setRecommendationsForMe] = useState([]);
 
@@ -27,7 +27,7 @@ const RecommendationForMe = () => {
             <div className="overflow-x-auto">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+                        <thead className={theme === 'light' ? "text-xs text-gray-700 uppercase bg-gray-200" : "text-xs text-white uppercase bg-gray-700"}>
                             <tr>
                                 <th scope="col" className="py-3 px-6">#</th>
                                 <th scope="col" className="py-3 px-6">Image</th>
@@ -41,14 +41,14 @@ const RecommendationForMe = () => {
                         <tbody>
                             {
                                 recommendationsForMe.map((recommendation, index) =>
-                                    <tr key={recommendation._id} className="border-b hover:bg-gray-100">
+                                    <tr key={recommendation._id} className={`border-b hover:bg-${theme === 'light' ? 'gray-100' : 'gray-700'}`}>
                                         <td className="py-4 px-6">{index + 1}</td>
                                         <td className="py-4 px-6"><img className='w-16 rounded-lg' src={recommendation.recommendationProductImage} alt="" /></td>
                                         <td className="py-4 px-6">{recommendation.productName}</td>
                                         <td className="py-4 px-6">{recommendation.recommendationProductName}</td>
                                         <td className="py-4 px-6">{recommendation.recommenderName}</td>
                                         <td className="py-4 px-6">{recommendation.recommendationTitle}</td>
-                                        <td className="py-4 px-6">{recommendation.recommendationReason}</td>
+                                        <td className={`py-4 px-6 ${theme === 'light' ? 'text-gray-900' : 'text-gray-300'}`}>{recommendation.recommendationReason}</td>
                                     </tr>
                                 )
                             }
