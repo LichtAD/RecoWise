@@ -82,7 +82,12 @@ cd <project-directory>
 npm i
 ```
 
-- Create .env.local file and add all the environment variables from firebase
+- Create .env.local file. Next, go to firebase and create a project and install firebase. Then, add all the environment variables from firebase in .env.local
+![.env.local example](https://i.ibb.co.com/hBhD6Qs/image.png)
+
+- Clone the server, create .env there and add DB_USER, DB_PASS and JWT_SECRET from mongodb atlas
+
+- To run the project locally, replace all the server links with 'http://localhost:5000'
 
 - Run the project
 ```
