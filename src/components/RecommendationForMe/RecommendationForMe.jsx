@@ -9,7 +9,7 @@ const RecommendationForMe = () => {
     const [recommendationsForMe, setRecommendationsForMe] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recommendations?userEmail=${user.email}`, {
+        fetch(`https://product-recommendation-system-server-coral.vercel.app/recommendations?userEmail=${user.email}`, {
             method: 'GET',
             credentials: 'include'
         })

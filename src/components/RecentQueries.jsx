@@ -9,7 +9,7 @@ const RecentQueries = () => {
     const [recentQueries, setRecentQueries] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/queries-six')
+        fetch('https://product-recommendation-system-server-coral.vercel.app/queries-six')
             .then(res => res.json())
             .then(data => setRecentQueries(data))
     }, [])

@@ -21,7 +21,7 @@ const AllQueries = () => {
     // console.log(searchText);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/queries-only?filter=${searchText}`)
+        axios.get(`https://product-recommendation-system-server-coral.vercel.app/queries-only?filter=${searchText}`)
             .then(res => setQueries(res.data))
     }, [searchText])
 
@@ -40,7 +40,7 @@ const AllQueries = () => {
     // ! sort
     const handleSort = (sortType) => {
         if (sortType === 'Oldest') {
-            fetch(`http://localhost:5000/queries-sort`, {
+            fetch(`https://product-recommendation-system-server-coral.vercel.app/queries-sort`, {
                 method: 'GET'
             })
                 .then(res => res.json())
@@ -50,7 +50,7 @@ const AllQueries = () => {
                 })
         }
         else if (sortType === 'Name') {
-            fetch(`http://localhost:5000/queries-sort-name`, {
+            fetch(`https://product-recommendation-system-server-coral.vercel.app/queries-sort-name`, {
                 method: 'GET'
             })
                 .then(res => res.json())

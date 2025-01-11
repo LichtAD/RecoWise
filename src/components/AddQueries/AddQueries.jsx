@@ -30,7 +30,7 @@ const AddQueries = () => {
         // console.log(newQuery);
 
         // ! send data to the server
-        // fetch('http://localhost:5000/queries', {
+        // fetch('https://product-recommendation-system-server-coral.vercel.app/queries', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -53,7 +53,7 @@ const AddQueries = () => {
         //     })
 
         try {
-            const res = await axios.post('http://localhost:5000/queries', newQuery, { withCredentials: true })
+            const res = await axios.post('https://product-recommendation-system-server-coral.vercel.app/queries', newQuery, { withCredentials: true })
             // console.log(res);
             Swal.fire({
                 title: "Congratulation!",
