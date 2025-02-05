@@ -1,7 +1,7 @@
 # RecoWise
 
 **Welcome to RecoWise !!!**
-Discover top sports gear tailored to your needs, compare options, explore reviews, and snag the best prices!
+Discover top products tailored to your needs, compare options, explore reviews, and snag the best prices!
 
 RecoWise is a platform to recommend products to users based on their preferences. It uses a combination of user ratings and product features to suggest the best products for users. The platform is built using Node.js, Express.js, and MongoDB. The user interface is built using React.js and hosted on Firebase with Vercel as the deployment platform.
 
